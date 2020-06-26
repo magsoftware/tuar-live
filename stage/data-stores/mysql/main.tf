@@ -18,7 +18,7 @@ terraform {
 module "mysql" {
   source = "github.com/magsoftware/tuar-modules//data-stores/mysql?ref=rel-0.0.2"
  
-  db_name     = "mydatabase-stage"
-  db_username = "mysername-stage"
-  db_password = "123qweAz"
+  db_name     = "mydatabase_stage"
+  db_username = "mysername_stage"
+  db_password = var.db_password
 }

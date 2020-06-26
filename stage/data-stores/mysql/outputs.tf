@@ -1,6 +1,5 @@
 output "address" {
   value = module.mysql.address
-  }
 }
 
 
