@@ -16,7 +16,7 @@ terraform {
 
 
 module "webserver_cluster" {
-  source = "github.com/magsoftware/tuar-modules//services/webserver-cluster?ref=rel-0.0.1"
+  source = "github.com/magsoftware/tuar-modules//services/webserver-cluster?ref=rel-0.0.2"
  
   cluster_name           = "webservers-stage"
   db_remote_state_bucket = "magsoftware-terraform-state"

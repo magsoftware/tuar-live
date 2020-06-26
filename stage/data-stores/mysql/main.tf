@@ -1,3 +1,8 @@
+terraform {
+  required_version = ">= 0.12, < 0.13"
+}
+
+
 provider "aws" {
   region = "eu-central-1"
 }
@@ -10,14 +15,10 @@ terraform {
 }
 
 
-resource "aws_db_instance" "example" {
-  identifier_prefix    = "magsoftware-terraform"
-  allocated_storage    = 10
-  engine               = "mysql"
-  instance_class       = "db.t2.micro"
-  skip_final_snapshot  = true
-
-  name                 = "example_database"
-  username             = "admin"
-  password             = var.db_password
+module "mysql" {
+  source = "github.com/magsoftware/tuar-modules//data-stores/mysql?ref=rel-0.0.2"
+ 
+  db_name     = "mydatabase-stage"
+  db_username = "mysername-stage"
+  db_password = "123qweAz"
 }
