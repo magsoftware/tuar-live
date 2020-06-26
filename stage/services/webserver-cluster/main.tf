@@ -16,8 +16,8 @@ terraform {
 
 
 module "webserver_cluster" {
-  source = "../../../modules/services/webserver-cluster"
-
+  source = "github.com/magsoftware/tuar-modules//services/webserver-cluster?ref=rel-0.0.1"
+ 
   cluster_name           = "webservers-stage"
   db_remote_state_bucket = "magsoftware-terraform-state"
   db_remote_state_key    = "stage/data-stores/mysql/terraform.tfstate"
@@ -25,4 +25,5 @@ module "webserver_cluster" {
   instance_type = "t2.micro"
   min_size      = 2
   max_size      = 2
+  server_port   = 8080
 }
